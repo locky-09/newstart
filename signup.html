@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | TollPay</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta name="description" content="Create your TollPay account">
+</head>
+<body class="light-theme auth-body">
+  
+  <div class="auth-container">
+    <div class="auth-card glass-panel">
+      <div class="auth-header">
+        <a href="index.html" class="logo-container">
+          <div class="logo">
+            <i class="fas fa-car"></i>
+          </div>
+          <h1 class="logo-text">TollPay</h1>
+        </a>
+        <h2>Create Your Account</h2>
+        <p>Join thousands of drivers saving time at toll plazas</p>
+      </div>
+
+      <form id="signupForm" class="auth-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <div class="input-with-icon">
+              <i class="fas fa-user"></i>
+              <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-with-icon">
+            <i class="fas fa-envelope"></i>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="password" name="password" placeholder="Create a password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-with-icon">
+            <i class="fas fa-lock"></i>
+            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="input-with-icon">
+            <i class="fas fa-car"></i>
+            <select id="plan" name="plan" required>
+              <option value="" disabled selected>Select a Plan</option>
+              <option value="basic">Basic Plan - $0/month</option>
+              <option value="premium">Premium Plan - $9.99/month</option>
+              <option value="business">Business Plan - $29.99/month</option>
+            </select>
+          </div>
+        </div>
+        <div class="terms-checkbox">
+          <input type="checkbox" id="terms" name="terms" required>
+          <label for="terms">I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a></label>
+        </div>
+        <button type="submit" class="submit-btn">Create Account</button>
+      </form>
+
+      <div class="auth-divider">
+        <span>OR</span>
+      </div>
+
+      <div class="social-login">
+        <button class="social-btn google">
+          <i class="fab fa-google"></i>
+          <span>Sign up with Google</span>
+        </button>
+        <button class="social-btn facebook">
+          <i class="fab fa-facebook-f"></i>
+          <span>Sign up with Facebook</span>
+        </button>
+      </div>
+
+      <div class="auth-footer">
+        <p>Already have an account? <a href="login.html">Login</a></p>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

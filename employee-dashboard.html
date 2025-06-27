@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Dashboard - TollPay</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-car"></i>
+                    <h2>TollPay</h2>
+                </div>
+                <div class="sidebar-close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="sidebar-menu">
+                <ul>
+                    <li>
+                        <a href="employee-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cctv.html">
+                            <i class="fas fa-video"></i>
+                            <span>CCTV Footage</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="scanner.html">
+                            <i class="fas fa-camera"></i>
+                            <span>Plate Scanner</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="entries.html">
+                            <i class="fas fa-history"></i>
+                            <span>Entry History</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="profile.html">
+                            <i class="fas fa-user"></i>
+                            <span>Profile</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#settings">
+                            <i class="fas fa-cog"></i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="sidebar-footer">
+                <a href="#" class="logout">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <div class="header-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search...">
+                </div>
+                <div class="header-right">
+                    <div class="notification">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="pic.png" alt="Employee Avatar">
+                        <div class="user-info">
+                            <h4 id="employee-name">Robert Smith</h4>
+                            <p>Toll Operator</p>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="dashboard-content">
+                <div class="page-header">
+                    <h1>Employee Dashboard</h1>
+                    <p>Welcome back, <span id="welcome-name">Robert</span>!</p>
+                </div>
+
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Today's Traffic</h3>
+                            <p id="traffic-count">152</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Today's Revenue</h3>
+                            <p id="revenue">$1,520.00</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-road"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Active Lanes</h3>
+                            <p id="active-lanes">4/5</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-card-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-card-info">
+                            <h3>Alerts</h3>
+                            <p id="alert-count">2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <div class="dashboard-card cctv-card">
+                        <div class="card-header">
+                            <h2>CCTV Footage</h2>
+                            <a href="cctv.html" class="view-all">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="cctv-grid">
+                                <div class="cctv-feed">
+                                    <div class="cctv-header">
+                                        <span>Entrance Camera</span>
+                                        <div class="cctv-controls">
+                                            <button class="cctv-control-btn play-pause"><i class="fas fa-pause"></i></button>
+                                            <button class="cctv-control-btn fullscreen"><i class="fas fa-expand"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cctv-video" id="cctv-entrance">
+                                        <!-- CCTV video will be loaded here -->
+                                    </div>
+                                    <div class="cctv-footer">
+                                        <span class="cctv-timestamp" id="entrance-timestamp">Live: 10:45:22 AM</span>
+                                    </div>
+                                </div>
+                                <div class="cctv-feed">
+                                    <div class="cctv-header">
+                                        <span>Exit Camera</span>
+                                        <div class="cctv-controls">
+                                            <button class="cctv-control-btn play-pause"><i class="fas fa-pause"></i></button>
+                                            <button class="cctv-control-btn fullscreen"><i class="fas fa-expand"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="cctv-video" id="cctv-exit">
+                                        <!-- CCTV video will be loaded here -->
+                                    </div>
+                                    <div class="cctv-footer">
+                                        <span class="cctv-timestamp" id="exit-timestamp">Live: 10:45:22 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card scanner-card">
+                        <div class="card-header">
+                            <h2>Plate Scanner</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="scanner-container">
+                                <div class="scanner-input">
+                                    <input type="text" id="plate-number" placeholder="Enter plate number or click Scan">
+                                    <button id="scan-btn" class="btn btn-primary">Scan</button>
+                                </div>
+                                <div class="scanner-result" id="scanner-result">
+                                    <!-- Scanner results will be loaded here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card entries-card">
+                        <div class="card-header">
+                            <h2>Recent Entries</h2>
+                            <a href="entries.html" class="view-all">View All</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="entry-list" id="employee-entry-list">
+                                <!-- Entry items will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card profile-card">
+                        <div class="card-header">
+                            <h2>Employee Information</h2>
+                            <a href="profile.html" class="edit-profile">Edit</a>
+                        </div>
+                        <div class="card-body">
+                            <div class="profile-info" id="employee-profile-info">
+                                <!-- Employee information will be loaded here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

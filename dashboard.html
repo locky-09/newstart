@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | TollPay</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme dashboard-body">
+
+  <div class="dashboard-container">
+    <aside class="sidebar glass-panel">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo">
+            <i class="fas fa-car"></i>
+          </div>
+          <h2 class="logo-text">TollPay</h2>
+        </div>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="pic.png" alt="User avatar" id="userAvatar">
+        </div>
+        <div class="user-info">
+          <h3 id="userName">John Doe</h3>
+          <p id="userPlan">Premium Plan</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="vehicles.html">
+              <i class="fas fa-car"></i>
+              <span>My Vehicles</span>
+            </a>
+          </li>
+          <li>
+            <a href="transactions.html">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li>
+            <a href="payments.html">
+              <i class="fas fa-credit-card"></i>
+              <span>Payment Methods</span>
+            </a>
+          </li>
+          <li>
+            <a href="notifications.html">
+              <i class="fas fa-bell"></i>
+              <span>Notifications</span>
+              <span class="badge">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="logout">
+            <a href="#" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header glass-panel">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+          <button aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <div class="notification-bell">
+            <button aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+              <span class="badge">5</span>
+            </button>
+          </div>
+          <div class="help-button">
+            <button aria-label="Help">
+              <i class="fas fa-question-circle"></i>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-toggle" aria-label="User menu">
+              <img src="pic.png" alt="User avatar">
+              <span>John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu glass-panel">
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+              <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logoutBtnHeader"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="welcome-section glass-panel">
+          <div class="welcome-text">
+            <h1>Welcome back, <span id="welcomeName">John</span></h1>
+            <p>Here's an overview of your toll activities and account status.</p>
+          </div>
+          <div class="welcome-actions">
+            <button class="cta-secondary">View Reports</button>
+            <button class="cta-primary">Add Vehicle</button>
+          </div>
+        </div>
+
+        <div class="overview-stats">
+          <div class="stat-card glass-panel">
+            <div class="stat-icon blue">
+              <i class="fas fa-car"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Active Vehicles</h3>
+              <p class="stat-value">3</p>
+              <p class="stat-change"><i class="fas fa-arrow-up"></i> +1 this month</p>
+            </div>
+          </div>
+
+          <div class="stat-card glass-panel">
+            <div class="stat-icon purple">
+              <i class="fas fa-road"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Total Toll Passes</h3>
+              <p class="stat-value">27</p>
+              <p class="stat-change"><i class="fas fa-arrow-up"></i> +8 this month</p>
+            </div>
+          </div>
+
+          <div class="stat-card glass-panel">
+            <div class="stat-icon green">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Balance</h3>
+              <p class="stat-value">$45.25</p>
+              <p class="stat-change"><i class="fas fa-arrow-down"></i> -$12.50 this month</p>
+            </div>
+          </div>
+
+          <div class="stat-card glass-panel">
+            <div class="stat-icon orange">
+              <i class="fas fa-bell"></i>
+            </div>
+            <div class="stat-details">
+              <h3>Notifications</h3>
+              <p class="stat-value">5</p>
+              <p class="stat-change"><i class="fas fa-arrow-up"></i> +3 this week</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <div class="dashboard-card glass-panel">
+            <div class="card-header">
+              <h2>Recent Transactions</h2>
+              <a href="transactions.html" class="view-all">View All</a>
+            </div>
+            <div class="transactions-list">
+              <div class="transaction-item">
+                <div class="transaction-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="transaction-details">
+                  <h4>Highway 101 Toll Plaza</h4>
+                  <p>Vehicle: ABC-123 (Honda Civic)</p>
+                </div>
+                <div class="transaction-amount">
+                  <span class="amount">-$2.50</span>
+                  <span class="time">Today, 10:23 AM</span>
+                </div>
+              </div>
+              <div class="transaction-item">
+                <div class="transaction-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="transaction-details">
+                  <h4>Bay Bridge Toll</h4>
+                  <p>Vehicle: XYZ-789 (Toyota Camry)</p>
+                </div>
+                <div class="transaction-amount">
+                  <span class="amount">-$6.00</span>
+                  <span class="time">Yesterday, 5:47 PM</span>
+                </div>
+              </div>
+              <div class="transaction-item">
+                <div class="transaction-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="transaction-details">
+                  <h4>Golden Gate Bridge</h4>
+                  <p>Vehicle: ABC-123 (Honda Civic)</p>
+                </div>
+                <div class="transaction-amount">
+                  <span class="amount">-$8.00</span>
+                  <span class="time">Oct 15, 2023</span>
+                </div>
+              </div>
+              <div class="transaction-item">
+                <div class="transaction-icon">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="transaction-details">
+                  <h4>Account Recharge</h4>
+                  <p>Payment Method: VISA **** 4567</p>
+                </div>
+                <div class="transaction-amount credit">
+                  <span class="amount">+$50.00</span>
+                  <span class="time">Oct 14, 2023</span>
+                </div>
+              </div>
+              <div class="transaction-item">
+                <div class="transaction-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="transaction-details">
+                  <h4>Highway 280 Toll Plaza</h4>
+                  <p>Vehicle: DEF-456 (Ford Escape)</p>
+                </div>
+                <div class="transaction-amount">
+                  <span class="amount">-$3.25</span>
+                  <span class="time">Oct 12, 2023</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card glass-panel">
+            <div class="card-header">
+              <h2>Vehicle Activity</h2>
+              <div class="chart-period">
+                <button class="period-btn active">Weekly</button>
+                <button class="period-btn">Monthly</button>
+                <button class="period-btn">Yearly</button>
+              </div>
+            </div>
+            <div class="chart-container">
+              <canvas id="vehicleActivityChart"></canvas>
+            </div>
+          </div>
+
+          <div class="dashboard-card glass-panel">
+            <div class="card-header">
+              <h2>My Vehicles</h2>
+              <a href="vehicles.html" class="view-all">Manage Vehicles</a>
+            </div>
+            <div class="vehicles-list">
+              <div class="vehicle-item">
+                <div class="vehicle-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="vehicle-details">
+                  <h4>Honda Civic</h4>
+                  <p>License: ABC-123</p>
+                  <div class="tag active">Primary</div>
+                </div>
+                <button class="vehicle-action" aria-label="More options for Honda Civic">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+              <div class="vehicle-item">
+                <div class="vehicle-icon">
+                  <i class="fas fa-car"></i>
+                </div>
+                <div class="vehicle-details">
+                  <h4>Toyota Camry</h4>
+                  <p>License: XYZ-789</p>
+                </div>
+                <button class="vehicle-action" aria-label="More options for Toyota Camry">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+              <div class="vehicle-item">
+                <div class="vehicle-icon">
+                  <i class="fas fa-car-side"></i>
+                </div>
+                <div class="vehicle-details">
+                  <h4>Ford Escape</h4>
+                  <p>License: DEF-456</p>
+                </div>
+                <button class="vehicle-action" aria-label="More options for Ford Escape">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="add-vehicle">
+                <i class="fas fa-plus"></i> Add New Vehicle
+              </button>
+            </div>
+          </div>
+
+          <div class="dashboard-card glass-panel">
+            <div class="card-header">
+              <h2>Recent Notifications</h2>
+              <a href="notifications.html" class="view-all">View All</a>
+            </div>
+            <div class="notifications-list">
+              <div class="notification-item unread">
+                <div class="notification-icon warning">
+                  <i class="fas fa-exclamation-triangle"></i>
+                </div>
+                <div class="notification-details">
+                  <h4>Low Balance Alert</h4>
+                  <p>Your account balance is below $50. Consider recharging to avoid interruptions.</p>
+                  <span class="time">1 hour ago</span>
+                </div>
+                <button class="notification-action" aria-label="Mark as read">
+                  <i class="fas fa-circle"></i>
+                </button>
+              </div>
+              <div class="notification-item unread">
+                <div class="notification-icon success">
+                  <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="notification-details">
+                  <h4>Toll Payment Successful</h4>
+                  <p>Your toll payment of $6.00 for Bay Bridge was successful.</p>
+                  <span class="time">Yesterday</span>
+                </div>
+                <button class="notification-action" aria-label="Mark as read">
+                  <i class="fas fa-circle"></i>
+                </button>
+              </div>
+              <div class="notification-item">
+                <div class="notification-icon info">
+                  <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="notification-details">
+                  <h4>New Toll Route Added</h4>
+                  <p>A new toll route has been added to your frequent routes.</p>
+                  <span class="time">2 days ago</span>
+                </div>
+                <button class="notification-action" aria-label="Mark as unread">
+                  <i class="far fa-circle"></i>
+                </button>
+              </div>
+              <div class="notification-item">
+                <div class="notification-icon primary">
+                  <i class="fas fa-credit-card"></i>
+                </div>
+                <div class="notification-details">
+                  <h4>Account Recharged</h4>
+                  <p>Your account has been recharged with $50.00.</p>
+                  <span class="time">3 days ago</span>
+                </div>
+                <button class="notification-action" aria-label="Mark as unread">
+                  <i class="far fa-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="dashboard-card glass-panel">
+            <div class="card-header">
+              <h2>Payment Methods</h2>
+              <a href="payments.html" class="view-all">Manage Payments</a>
+            </div>
+            <div class="payment-methods-list">
+              <div class="payment-method">
+                <div class="payment-icon">
+                  <i class="fab fa-cc-visa"></i>
+                </div>
+                <div class="payment-details">
+                  <h4>VISA ending in 4567</h4>
+                  <p>Expires: 05/25</p>
+                  <div class="tag active">Primary</div>
+                </div>
+                <button class="payment-action" aria-label="More options">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+              <div class="payment-method">
+                <div class="payment-icon">
+                  <i class="fab fa-cc-mastercard"></i>
+                </div>
+                <div class="payment-details">
+                  <h4>MasterCard ending in 8901</h4>
+                  <p>Expires: 11/24</p>
+                </div>
+                <button class="payment-action" aria-label="More options">
+                  <i class="fas fa-ellipsis-v"></i>
+                </button>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="add-payment">
+                <i class="fas fa-plus"></i> Add Payment Method
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

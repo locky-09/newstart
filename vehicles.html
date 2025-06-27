@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Vehicles | TollPay</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme dashboard-body">
+  <div class="theme-toggle">
+    <button id="light-mode" class="theme-btn active" aria-label="Light mode">
+      <i class="fas fa-sun"></i>
+    </button>
+    <button id="dark-mode" class="theme-btn" aria-label="Dark mode">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button id="system-mode" class="theme-btn" aria-label="System mode">
+      <i class="fas fa-desktop"></i>
+    </button>
+  </div>
+
+  <div class="dashboard-container">
+    <aside class="sidebar glass-panel">
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo">
+            <i class="fas fa-car"></i>
+          </div>
+          <h2 class="logo-text">TollPay</h2>
+        </div>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="pic.png" alt="User avatar" id="userAvatar">
+        </div>
+        <div class="user-info">
+          <h3 id="userName">John Doe</h3>
+          <p id="userPlan">Premium Plan</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="vehicles.html">
+              <i class="fas fa-car"></i>
+              <span>My Vehicles</span>
+            </a>
+          </li>
+          <li>
+            <a href="transactions.html">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li>
+            <a href="payments.html">
+              <i class="fas fa-credit-card"></i>
+              <span>Payment Methods</span>
+            </a>
+          </li>
+          <li>
+            <a href="notifications.html">
+              <i class="fas fa-bell"></i>
+              <span>Notifications</span>
+              <span class="badge">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="logout">
+            <a href="#" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header glass-panel">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="search-bar">
+          <input type="text" placeholder="Search vehicles...">
+          <button aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <div class="notification-bell">
+            <button aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+              <span class="badge">5</span>
+            </button>
+          </div>
+          <div class="help-button">
+            <button aria-label="Help">
+              <i class="fas fa-question-circle"></i>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-toggle" aria-label="User menu">
+              <img src="images/user-avatar.jpg" alt="User avatar">
+              <span>John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu glass-panel">
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+              <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logoutBtnHeader"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="page-header">
+          <div>
+            <h1>My Vehicles</h1>
+            <p>Manage your registered vehicles and transponders</p>
+          </div>
+          <button class="cta-primary" id="addVehicleBtn">
+            <i class="fas fa-plus"></i> Add New Vehicle
+          </button>
+        </div>
+
+        <div class="vehicles-container glass-panel">
+          <div class="vehicles-filter">
+            <div class="filter-buttons">
+              <button class="filter-btn active">All Vehicles (3)</button>
+              <button class="filter-btn">Active (3)</button>
+              <button class="filter-btn">Inactive (0)</button>
+            </div>
+            <div class="sort-dropdown">
+              <select id="sortVehicles">
+                <option value="newest">Newest First</option>
+                <option value="oldest">Oldest First</option>
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="name-desc">Name (Z-A)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="vehicles-grid">
+            <div class="vehicle-card glass-panel">
+              <div class="vehicle-header">
+                <div class="vehicle-badge primary">Primary</div>
+                <div class="vehicle-actions">
+                  <button class="vehicle-action-btn" aria-label="Edit vehicle">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="vehicle-action-btn" aria-label="Delete vehicle">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="vehicle-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <div class="vehicle-info">
+                <h3>Honda Civic</h3>
+                <ul class="vehicle-details-list">
+                  <li>
+                    <span class="detail-label">License:</span>
+                    <span class="detail-value">ABC-123</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Transponder ID:</span>
+                    <span class="detail-value">TP00012345</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Year:</span>
+                    <span class="detail-value">2020</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-active">Active</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vehicle-footer">
+                <button class="cta-secondary vehicle-details-btn">View Details</button>
+              </div>
+            </div>
+
+            <div class="vehicle-card glass-panel">
+              <div class="vehicle-header">
+                <div class="vehicle-actions">
+                  <button class="vehicle-action-btn" aria-label="Edit vehicle">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="vehicle-action-btn" aria-label="Delete vehicle">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="vehicle-icon">
+                <i class="fas fa-car"></i>
+              </div>
+              <div class="vehicle-info">
+                <h3>Toyota Camry</h3>
+                <ul class="vehicle-details-list">
+                  <li>
+                    <span class="detail-label">License:</span>
+                    <span class="detail-value">XYZ-789</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Transponder ID:</span>
+                    <span class="detail-value">TP00023456</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Year:</span>
+                    <span class="detail-value">2019</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-active">Active</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vehicle-footer">
+                <button class="cta-secondary vehicle-details-btn">View Details</button>
+              </div>
+            </div>
+
+            <div class="vehicle-card glass-panel">
+              <div class="vehicle-header">
+                <div class="vehicle-actions">
+                  <button class="vehicle-action-btn" aria-label="Edit vehicle">
+                    <i class="fas fa-edit"></i>
+                  </button>
+                  <button class="vehicle-action-btn" aria-label="Delete vehicle">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="vehicle-icon">
+                <i class="fas fa-car-side"></i>
+              </div>
+              <div class="vehicle-info">
+                <h3>Ford Escape</h3>
+                <ul class="vehicle-details-list">
+                  <li>
+                    <span class="detail-label">License:</span>
+                    <span class="detail-value">DEF-456</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Transponder ID:</span>
+                    <span class="detail-value">TP00034567</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Year:</span>
+                    <span class="detail-value">2021</span>
+                  </li>
+                  <li>
+                    <span class="detail-label">Status:</span>
+                    <span class="detail-value status-active">Active</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="vehicle-footer">
+                <button class="cta-secondary vehicle-details-btn">View Details</button>
+              </div>
+            </div>
+
+            <div class="add-vehicle-card glass-panel">
+              <div class="add-vehicle-content">
+                <div class="add-icon">
+                  <i class="fas fa-plus"></i>
+                </div>
+                <h3>Add New Vehicle</h3>
+                <p>Register a new vehicle to your account</p>
+                <button class="cta-secondary">Add Vehicle</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Vehicle Modal -->
+  <div class="modal" id="addVehicleModal">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2>Add New Vehicle</h2>
+        <button class="close-modal" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <form id="addVehicleForm">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vehicleMake">Make</label>
+              <input type="text" id="vehicleMake" name="vehicleMake" placeholder="e.g. Toyota" required>
+            </div>
+            <div class="form-group">
+              <label for="vehicleModel">Model</label>
+              <input type="text" id="vehicleModel" name="vehicleModel" placeholder="e.g. Camry" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="vehicleYear">Year</label>
+              <input type="number" id="vehicleYear" name="vehicleYear" placeholder="e.g. 2022" required min="1900" max="2099">
+            </div>
+            <div class="form-group">
+              <label for="vehicleColor">Color</label>
+              <input type="text" id="vehicleColor" name="vehicleColor" placeholder="e.g. Blue">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="vehicleLicense">License Plate Number</label>
+            <input type="text" id="vehicleLicense" name="vehicleLicense" placeholder="e.g. ABC-123" required>
+          </div>
+          <div class="form-group">
+            <label for="vehicleTransponder">Transponder ID (optional)</label>
+            <input type="text" id="vehicleTransponder" name="vehicleTransponder" placeholder="e.g. TP00012345">
+          </div>
+          <div class="form-checkbox">
+            <input type="checkbox" id="isPrimaryVehicle" name="isPrimaryVehicle">
+            <label for="isPrimaryVehicle">Set as primary vehicle</label>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="cta-secondary" id="cancelAddVehicle">Cancel</button>
+        <button class="cta-primary" id="saveVehicle">Add Vehicle</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/vehicles.js"></script>
+</body>
+</html>

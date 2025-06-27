@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Transactions | TollPay</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="light-theme dashboard-body">
+
+  <div class="dashboard-container">
+    <aside class="sidebar glass-panel">
+      <!-- Sidebar content (Same as in dashboard.html) -->
+      <div class="sidebar-header">
+        <div class="logo-container">
+          <div class="logo">
+            <i class="fas fa-car"></i>
+          </div>
+          <h2 class="logo-text">TollPay</h2>
+        </div>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">
+          <img src="pic.png" alt="User avatar" id="userAvatar">
+        </div>
+        <div class="user-info">
+          <h3 id="userName">John Doe</h3>
+          <p id="userPlan">Premium Plan</p>
+        </div>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="dashboard.html">
+              <i class="fas fa-tachometer-alt"></i>
+              <span>Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="vehicles.html">
+              <i class="fas fa-car"></i>
+              <span>My Vehicles</span>
+            </a>
+          </li>
+          <li>
+            <a href="transactions.html">
+              <i class="fas fa-exchange-alt"></i>
+              <span>Transactions</span>
+            </a>
+          </li>
+          <li>
+            <a href="payments.html">
+              <i class="fas fa-credit-card"></i>
+              <span>Payment Methods</span>
+            </a>
+          </li>
+          <li>
+            <a href="notifications.html">
+              <i class="fas fa-bell"></i>
+              <span>Notifications</span>
+              <span class="badge">5</span>
+            </a>
+          </li>
+          <li>
+            <a href="settings.html">
+              <i class="fas fa-cog"></i>
+              <span>Settings</span>
+            </a>
+          </li>
+          <li class="logout">
+            <a href="#" id="logoutBtn">
+              <i class="fas fa-sign-out-alt"></i>
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="dashboard-header glass-panel">
+        <button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle sidebar">
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="search-bar">
+          <input type="text" placeholder="Search transactions...">
+          <button aria-label="Search"><i class="fas fa-search"></i></button>
+        </div>
+        <div class="header-actions">
+          <div class="notification-bell">
+            <button aria-label="Notifications">
+              <i class="fas fa-bell"></i>
+              <span class="badge">5</span>
+            </button>
+          </div>
+          <div class="help-button">
+            <button aria-label="Help">
+              <i class="fas fa-question-circle"></i>
+            </button>
+          </div>
+          <div class="dropdown">
+            <button class="dropdown-toggle" aria-label="User menu">
+              <img src="images/user-avatar.jpg" alt="User avatar">
+              <span>John Doe</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu glass-panel">
+              <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+              <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+              <a href="#" id="logoutBtnHeader"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="dashboard-content">
+        <div class="page-header">
+          <div>
+            <h1>Transactions</h1>
+            <p>View and manage your toll payment history</p>
+          </div>
+          <div class="date-range-picker glass-panel">
+            <button class="date-range-btn"><i class="far fa-calendar-alt"></i> Date Range</button>
+            <div class="date-inputs">
+              <input type="date" id="startDate" name="startDate">
+              <span>to</span>
+              <input type="date" id="endDate" name="endDate">
+            </div>
+            <button class="cta-secondary">Apply</button>
+          </div>
+        </div>
+
+        <div class="transactions-filters glass-panel">
+          <div class="filter-buttons">
+            <button class="filter-btn active">All Transactions</button>
+            <button class="filter-btn">Toll Payments</button>
+            <button class="filter-btn">Account Recharges</button>
+            <button class="filter-btn">Refunds</button>
+          </div>
+          <div class="filter-actions">
+            <div class="vehicle-filter">
+              <select id="vehicleFilter">
+                <option value="all">All Vehicles</option>
+                <option value="ABC-123">Honda Civic (ABC-123)</option>
+                <option value="XYZ-789">Toyota Camry (XYZ-789)</option>
+                <option value="DEF-456">Ford Escape (DEF-456)</option>
+              </select>
+            </div>
+            <button class="export-btn">
+              <i class="fas fa-file-export"></i> Export
+            </button>
+          </div>
+        </div>
+
+        <div class="transactions-table-container glass-panel">
+          <table class="transactions-table">
+            <thead>
+              <tr>
+                <th>Date & Time</th>
+                <th>Description</th>
+                <th>Vehicle</th>
+                <th>Payment Method</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 18, 2023</div>
+                    <div class="time">10:23 AM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Highway 101 Toll Plaza</div>
+                      <div class="desc-details">Southbound, Exit 25</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Honda Civic (ABC-123)</td>
+                <td>Wallet Balance</td>
+                <td class="amount debit">-$2.50</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 17, 2023</div>
+                    <div class="time">5:47 PM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Bay Bridge Toll</div>
+                      <div class="desc-details">Westbound</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Toyota Camry (XYZ-789)</td>
+                <td>Wallet Balance</td>
+                <td class="amount debit">-$6.00</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 15, 2023</div>
+                    <div class="time">11:32 AM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Golden Gate Bridge</div>
+                      <div class="desc-details">Northbound</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Honda Civic (ABC-123)</td>
+                <td>Wallet Balance</td>
+                <td class="amount debit">-$8.00</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 14, 2023</div>
+                    <div class="time">9:15 AM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Account Recharge</div>
+                      <div class="desc-details">Auto-recharge</div>
+                    </div>
+                  </div>
+                </td>
+                <td>N/A</td>
+                <td>VISA **** 4567</td>
+                <td class="amount credit">+$50.00</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 12, 2023</div>
+                    <div class="time">4:42 PM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Highway 280 Toll Plaza</div>
+                      <div class="desc-details">Northbound, Exit 12</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Ford Escape (DEF-456)</td>
+                <td>Wallet Balance</td>
+                <td class="amount debit">-$3.25</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 10, 2023</div>
+                    <div class="time">8:30 AM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-car"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Bay Bridge Toll</div>
+                      <div class="desc-details">Eastbound</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Honda Civic (ABC-123)</td>
+                <td>Wallet Balance</td>
+                <td class="amount debit">-$6.00</td>
+                <td><span class="status-badge success">Completed</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Download receipt"><i class="fas fa-download"></i></button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="transaction-date">
+                    <div class="date">Oct 8, 2023</div>
+                    <div class="time">2:15 PM</div>
+                  </div>
+                </td>
+                <td>
+                  <div class="transaction-desc">
+                    <div class="transaction-icon">
+                      <i class="fas fa-exclamation-circle"></i>
+                    </div>
+                    <div>
+                      <div class="desc-title">Manual Toll Payment</div>
+                      <div class="desc-details">Transponder failure</div>
+                    </div>
+                  </div>
+                </td>
+                <td>Toyota Camry (XYZ-789)</td>
+                <td>VISA **** 4567</td>
+                <td class="amount debit">-$4.50</td>
+                <td><span class="status-badge warning">Pending Verification</span></td>
+                <td>
+                  <button class="action-btn" aria-label="View details"><i class="fas fa-eye"></i></button>
+                  <button class="action-btn" aria-label="Support"><i class="fas fa-headset"></i></button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="pagination">
+          <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <span class="pagination-ellipsis">...</span>
+          <button class="pagination-btn">8</button>
+          <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/transactions.js"></script>
+</body>
+</html>
